@@ -548,7 +548,7 @@ export default function LandingPage() {
                 <li><a href="#" className="text-gray-500 hover:text-white text-sm transition-colors">About</a></li>
                 <li><a href="#" className="text-gray-500 hover:text-white text-sm transition-colors">Blog</a></li>
                 <li><a href="#" className="text-gray-500 hover:text-white text-sm transition-colors">Careers</a></li>
-                <li><a href="#" className="text-gray-500 hover:text-white text-sm transition-colors">Contact</a></li>
+                <li><a href="/contact" className="text-gray-500 hover:text-white text-sm transition-colors">Contact</a></li>
               </ul>
             </div>
 
