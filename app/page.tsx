@@ -516,6 +516,24 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* QR Code Section */}
+      <section className="py-16 px-6 border-t border-neutral-800">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-2xl font-bold mb-4">Get Started on Mobile</h2>
+          <p className="text-neutral-400 mb-8">Scan to create your account</p>
+          <div className="inline-block bg-white p-4 rounded-xl">
+            <img
+              src="/qr-code.png"
+              alt="Scan to sign up for Oumie"
+              className="w-48 h-48"
+            />
+          </div>
+          <p className="text-neutral-500 text-sm mt-4">
+            Works on any device with a camera
+          </p>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="border-t border-white/10 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
