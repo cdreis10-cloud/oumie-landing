@@ -38,6 +38,25 @@ export default function Login() {
       localStorage.setItem('oumie_auth_email', email)
       localStorage.setItem('oumie_auth_ready', 'true')
 
+      // Push auth to extension if installed
+      try {
+        const EXTENSION_ID = 'mbnjcoiabhfimfpoeeeonfoppfblioka'
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const cr = (window as any).chrome
+        if (cr?.runtime?.sendMessage) {
+          cr.runtime.sendMessage(EXTENSION_ID, {
+            action: 'setAuth',
+            token: data.token,
+            refreshToken: data.refreshToken,
+            user: data.user
+          }, () => {
+            if (cr.runtime.lastError) { /* noop */ }
+          })
+        }
+      } catch (_e) {
+        // Extension not installed or not available
+      }
+
       // Redirect to dashboard
       window.location.href = DASHBOARD_URL
     } catch (err: unknown) {
