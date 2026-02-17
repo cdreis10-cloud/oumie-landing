@@ -27,7 +27,7 @@ export default function Signup() {
   const [devCode, setDevCode] = useState('')
 
   const API_URL = 'https://oumie-backend.onrender.com'
-  const DASHBOARD_URL = 'https://oumie-dashboard.vercel.app'
+  const DASHBOARD_URL = 'https://student.oumie.app'
 
   // Step 1: Check email and send verification
   const handleEmailSubmit = async (e: React.FormEvent) => {

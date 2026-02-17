@@ -11,7 +11,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false)
 
   const API_URL = 'https://oumie-backend.onrender.com'
-  const DASHBOARD_URL = 'https://oumie-dashboard.vercel.app'
+  const DASHBOARD_URL = 'https://student.oumie.app'
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
