@@ -145,7 +145,7 @@ export default function LandingPage() {
               {oumieDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-56 bg-neutral-900 border border-white/20 rounded-xl shadow-xl overflow-hidden z-50">
                   <a
-                    href="https://oumie-dashboard.vercel.app/login"
+                    href="/login"
                     className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors"
                   >
                     <LogIn size={18} className="text-blue-400" />
@@ -165,7 +165,7 @@ export default function LandingPage() {
                     </div>
                   </a>
                   <a
-                    href="https://oumie-dashboard.vercel.app/signup"
+                    href="/signup"
                     className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors border-t border-white/10"
                   >
                     <GraduationCap size={18} className="text-green-400" />
@@ -183,7 +183,7 @@ export default function LandingPage() {
               <a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors text-sm">How It Works</a>
               <a href="#universities" className="text-gray-400 hover:text-white transition-colors text-sm">For Universities</a>
               <a
-                href="https://oumie-dashboard.vercel.app/signup"
+                href="/signup"
                 className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
               >
                 Get Started Free
@@ -205,14 +205,14 @@ export default function LandingPage() {
             <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="block text-gray-400 hover:text-white text-sm">How It Works</a>
             <a href="#universities" onClick={() => setMobileMenuOpen(false)} className="block text-gray-400 hover:text-white text-sm">For Universities</a>
             <hr className="border-white/10 my-2" />
-            <a href="https://oumie-dashboard.vercel.app/login" className="block text-gray-400 hover:text-white text-sm">
+            <a href="/login" className="block text-gray-400 hover:text-white text-sm">
               Sign In
             </a>
             <a href="https://oumie-dashboard.vercel.app" className="block text-gray-400 hover:text-white text-sm">
               Student Dashboard
             </a>
             <a
-              href="https://oumie-dashboard.vercel.app/signup"
+              href="/signup"
               className="block bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-lg text-center transition-colors"
             >
               Get Started Free
@@ -251,7 +251,7 @@ export default function LandingPage() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="https://oumie-dashboard.vercel.app/signup"
+              href="/signup"
               className="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors flex items-center gap-2 text-lg"
             >
               Get Started Free
@@ -569,7 +569,7 @@ export default function LandingPage() {
               It&apos;s completely free — no credit card needed.
             </p>
             <a
-              href="https://oumie-dashboard.vercel.app/signup"
+              href="/signup"
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-xl transition-colors text-lg"
             >
               Start Tracking Today
@@ -619,7 +619,7 @@ export default function LandingPage() {
                 <li><a href="#features" className="text-gray-500 hover:text-white text-sm transition-colors">Features</a></li>
                 <li><a href="#how-it-works" className="text-gray-500 hover:text-white text-sm transition-colors">How It Works</a></li>
                 <li><a href="#universities" className="text-gray-500 hover:text-white text-sm transition-colors">For Universities</a></li>
-                <li><a href="https://oumie-dashboard.vercel.app/signup" className="text-gray-500 hover:text-white text-sm transition-colors">Sign Up</a></li>
+                <li><a href="/signup" className="text-gray-500 hover:text-white text-sm transition-colors">Sign Up</a></li>
               </ul>
             </div>
 
