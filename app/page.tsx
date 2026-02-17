@@ -16,11 +16,15 @@ import {
   Star,
   Menu,
   X,
-  Play
+  Play,
+  ChevronDown,
+  LogIn,
+  LayoutDashboard
 } from 'lucide-react'
 
 export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [oumieDropdownOpen, setOumieDropdownOpen] = useState(false)
 
   const features = [
     {
@@ -121,18 +125,63 @@ export default function LandingPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold">Oumie</span>
+            {/* Logo with Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setOumieDropdownOpen(!oumieDropdownOpen)}
+                className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+              >
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-xl font-bold">Oumie</span>
+                <ChevronDown
+                  size={16}
+                  className={`text-gray-400 transition-transform ${oumieDropdownOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              {/* Dropdown Menu */}
+              {oumieDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-neutral-900 border border-white/20 rounded-xl shadow-xl overflow-hidden z-50">
+                  <a
+                    href="https://oumie-dashboard.vercel.app/login"
+                    className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors"
+                  >
+                    <LogIn size={18} className="text-blue-400" />
+                    <div>
+                      <p className="font-medium text-sm">Sign In</p>
+                      <p className="text-xs text-gray-500">Access your account</p>
+                    </div>
+                  </a>
+                  <a
+                    href="https://oumie-dashboard.vercel.app"
+                    className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors border-t border-white/10"
+                  >
+                    <LayoutDashboard size={18} className="text-purple-400" />
+                    <div>
+                      <p className="font-medium text-sm">Student Dashboard</p>
+                      <p className="text-xs text-gray-500">View your study stats</p>
+                    </div>
+                  </a>
+                  <a
+                    href="https://oumie-dashboard.vercel.app/signup"
+                    className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors border-t border-white/10"
+                  >
+                    <GraduationCap size={18} className="text-green-400" />
+                    <div>
+                      <p className="font-medium text-sm">Sign Up Free</p>
+                      <p className="text-xs text-gray-500">Create new account</p>
+                    </div>
+                  </a>
+                </div>
+              )}
             </div>
 
             <div className="hidden md:flex items-center gap-8">
               <a href="#features" className="text-gray-400 hover:text-white transition-colors text-sm">Features</a>
               <a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors text-sm">How It Works</a>
               <a href="#universities" className="text-gray-400 hover:text-white transition-colors text-sm">For Universities</a>
-              <a href="https://oumie-dashboard.vercel.app/login" className="text-gray-400 hover:text-white transition-colors text-sm">Login</a>
               <a
                 href="https://oumie-dashboard.vercel.app/signup"
                 className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
@@ -155,7 +204,13 @@ export default function LandingPage() {
             <a href="#features" onClick={() => setMobileMenuOpen(false)} className="block text-gray-400 hover:text-white text-sm">Features</a>
             <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="block text-gray-400 hover:text-white text-sm">How It Works</a>
             <a href="#universities" onClick={() => setMobileMenuOpen(false)} className="block text-gray-400 hover:text-white text-sm">For Universities</a>
-            <a href="https://oumie-dashboard.vercel.app/login" className="block text-gray-400 hover:text-white text-sm">Login</a>
+            <hr className="border-white/10 my-2" />
+            <a href="https://oumie-dashboard.vercel.app/login" className="block text-gray-400 hover:text-white text-sm">
+              Sign In
+            </a>
+            <a href="https://oumie-dashboard.vercel.app" className="block text-gray-400 hover:text-white text-sm">
+              Student Dashboard
+            </a>
             <a
               href="https://oumie-dashboard.vercel.app/signup"
               className="block bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-lg text-center transition-colors"
@@ -165,6 +220,14 @@ export default function LandingPage() {
           </div>
         )}
       </nav>
+
+      {/* Close dropdown when clicking outside */}
+      {oumieDropdownOpen && (
+        <div
+          className="fixed inset-0 z-40"
+          onClick={() => setOumieDropdownOpen(false)}
+        />
+      )}
 
       {/* Hero */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
