@@ -25,6 +25,7 @@ export default function Signup() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [devCode, setDevCode] = useState('')
+  const [dashboardUrl, setDashboardUrl] = useState('https://student.oumie.app')
 
   const API_URL = 'https://oumie-backend.onrender.com'
   const DASHBOARD_URL = 'https://student.oumie.app'
@@ -171,6 +172,14 @@ export default function Signup() {
         // Extension not installed or not available
       }
 
+      // Build dashboard URL with tokens for cross-domain auth
+      const params = new URLSearchParams({
+        token: data.token,
+        refresh: data.refreshToken,
+        user: JSON.stringify(data.user)
+      })
+      setDashboardUrl(`${DASHBOARD_URL}?${params.toString()}`)
+
       setStep('success')
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'An error occurred')
@@ -240,7 +249,7 @@ export default function Signup() {
           )}
 
           <a
-            href={DASHBOARD_URL}
+            href={dashboardUrl}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 rounded-xl transition-colors flex items-center justify-center gap-2 mb-4"
           >
             Go to Student Dashboard

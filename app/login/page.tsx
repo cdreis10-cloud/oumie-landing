@@ -57,8 +57,13 @@ export default function Login() {
         // Extension not installed or not available
       }
 
-      // Redirect to dashboard
-      window.location.href = DASHBOARD_URL
+      // Redirect to dashboard with tokens in URL for cross-domain auth
+      const params = new URLSearchParams({
+        token: data.token,
+        refresh: data.refreshToken,
+        user: JSON.stringify(data.user)
+      })
+      window.location.href = `${DASHBOARD_URL}?${params.toString()}`
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'An error occurred')
     } finally {
