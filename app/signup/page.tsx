@@ -154,7 +154,7 @@ export default function Signup() {
 
       // Push auth to extension if installed
       try {
-        const EXTENSION_ID = 'mbnjcoiabhfimfpoeeeonfoppfblioka'
+        const EXTENSION_ID = 'cocknknfomidlooigdjknndbadghcdfa'
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const cr = (window as any).chrome
         if (cr?.runtime?.sendMessage) {
