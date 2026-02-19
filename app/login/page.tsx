@@ -38,32 +38,44 @@ export default function Login() {
       localStorage.setItem('oumie_auth_email', email)
       localStorage.setItem('oumie_auth_ready', 'true')
 
-      // Push auth to extension if installed
-      try {
-        const EXTENSION_ID = 'mbnjcoiabhfimfpoeeeonfoppfblioka'
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const cr = (window as any).chrome
-        if (cr?.runtime?.sendMessage) {
-          cr.runtime.sendMessage(EXTENSION_ID, {
-            action: 'setAuth',
-            token: data.token,
-            refreshToken: data.refreshToken,
-            user: data.user
-          }, () => {
-            if (cr.runtime.lastError) { /* noop */ }
-          })
-        }
-      } catch (_e) {
-        // Extension not installed or not available
-      }
-
-      // Redirect to dashboard with tokens in URL for cross-domain auth
+      // Push auth to extension if installed, then redirect
       const params = new URLSearchParams({
         token: data.token,
         refresh: data.refreshToken,
         user: JSON.stringify(data.user)
       })
-      window.location.href = `${DASHBOARD_URL}?${params.toString()}`
+      const redirectUrl = `${DASHBOARD_URL}?${params.toString()}`
+
+      const doRedirect = () => { window.location.href = redirectUrl }
+
+      try {
+        const EXTENSION_ID = 'mbnjcoiabhfimfpoeeeonfoppfblioka'
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const cr = (window as any).chrome
+        if (cr?.runtime?.sendMessage) {
+          console.log('[Oumie] Sending auth to extension...')
+          cr.runtime.sendMessage(EXTENSION_ID, {
+            action: 'setAuth',
+            token: data.token,
+            refreshToken: data.refreshToken,
+            user: data.user
+          }, (response: unknown) => {
+            if (cr.runtime.lastError) {
+              console.warn('[Oumie] Extension message error:', cr.runtime.lastError.message)
+            } else {
+              console.log('[Oumie] Extension auth set:', response)
+            }
+            doRedirect()
+          })
+          // Fallback: redirect after 1s even if extension doesn't respond
+          setTimeout(doRedirect, 1000)
+        } else {
+          doRedirect()
+        }
+      } catch (_e) {
+        // Extension not installed
+        doRedirect()
+      }
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'An error occurred')
     } finally {
