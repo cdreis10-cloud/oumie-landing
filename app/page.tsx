@@ -155,7 +155,7 @@ export default function LandingPage() {
                     </div>
                   </a>
                   <a
-                    href="https://oumie-dashboard.vercel.app"
+                    href="https://student.oumie.app"
                     className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors border-t border-white/10"
                   >
                     <LayoutDashboard size={18} className="text-purple-400" />
@@ -208,7 +208,7 @@ export default function LandingPage() {
             <a href="/login" className="block text-gray-400 hover:text-white text-sm">
               Sign In
             </a>
-            <a href="https://oumie-dashboard.vercel.app" className="block text-gray-400 hover:text-white text-sm">
+            <a href="https://student.oumie.app" className="block text-gray-400 hover:text-white text-sm">
               Student Dashboard
             </a>
             <a
@@ -276,37 +276,35 @@ export default function LandingPage() {
                   <div className="w-3 h-3 rounded-full bg-green-500/60"></div>
                 </div>
                 <div className="flex-1 mx-4">
-                  <div className="bg-white/10 rounded-md px-3 py-1 text-sm text-gray-500 text-center">oumie-dashboard.vercel.app</div>
+                  <div className="bg-white/10 rounded-md px-3 py-1 text-sm text-gray-500 text-center">student.oumie.app</div>
                 </div>
               </div>
               <div className="p-6 grid grid-cols-3 gap-4">
                 <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-                  <div className="text-sm text-gray-500 mb-1">Study Hours</div>
-                  <div className="text-2xl font-bold text-blue-400">24.5h</div>
-                  <div className="text-xs text-green-400 mt-1">↑ 12% this week</div>
+                  <div className="text-sm text-gray-500 mb-1">Today</div>
+                  <div className="text-2xl font-bold text-blue-400">1 <span className="text-base font-normal">min</span></div>
                 </div>
                 <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-                  <div className="text-sm text-gray-500 mb-1">Current Streak</div>
-                  <div className="text-2xl font-bold text-yellow-400">🔥 7 days</div>
-                  <div className="text-xs text-gray-500 mt-1">Personal best!</div>
+                  <div className="text-sm text-gray-500 mb-1">This Week</div>
+                  <div className="text-2xl font-bold text-blue-400">1 <span className="text-base font-normal">min</span></div>
                 </div>
                 <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-                  <div className="text-sm text-gray-500 mb-1">Level</div>
-                  <div className="text-2xl font-bold text-purple-400">Lvl 12</div>
-                  <div className="text-xs text-gray-500 mt-1">42% to next level</div>
+                  <div className="text-sm text-gray-500 mb-1">Total Hours</div>
+                  <div className="text-2xl font-bold text-blue-400">2 <span className="text-base font-normal">min</span></div>
                 </div>
                 <div className="col-span-2 bg-white/5 rounded-xl p-4 border border-white/10">
-                  <div className="text-sm text-gray-500 mb-3">Weekly Study Hours</div>
-                  <div className="flex items-end gap-2 h-16">
-                    {[3, 5, 2, 7, 4, 6, 3].map((h, i) => (
+                  <div className="text-sm text-gray-500 mb-3">This Week</div>
+                  <div className="flex items-end gap-2" style={{ height: '64px' }}>
+                    {[0, 0, 0, 1, 0, 0, 0].map((h, i) => (
                       <div key={i} className="flex-1 flex flex-col items-center gap-1">
-                        <div
-                          className="w-full rounded-t-sm"
-                          style={{
-                            height: `${(h / 7) * 100}%`,
-                            background: i === 3 ? 'linear-gradient(to top, #3b82f6, #8b5cf6)' : 'rgba(255,255,255,0.1)'
-                          }}
-                        ></div>
+                        {h > 0 ? (
+                          <div
+                            className="w-full rounded-t-sm bg-blue-500"
+                            style={{ height: '100%' }}
+                          />
+                        ) : (
+                          <div className="w-full rounded-t-sm" style={{ height: '3px', background: 'rgba(255,255,255,0.1)' }} />
+                        )}
                         <span className="text-xs text-gray-600">
                           {['M', 'T', 'W', 'T', 'F', 'S', 'S'][i]}
                         </span>
@@ -315,12 +313,14 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-                  <div className="text-sm text-gray-500 mb-2">Top Subject</div>
-                  <div className="text-sm font-medium text-white">Computer Science</div>
-                  <div className="mt-2 w-full bg-white/10 rounded-full h-2">
-                    <div className="bg-blue-500 h-2 rounded-full" style={{ width: '68%' }}></div>
+                  <div className="text-sm text-gray-500 mb-2">Recent Sessions</div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-base">📝</span>
+                    <div>
+                      <div className="text-xs font-medium text-white">Google Docs</div>
+                      <div className="text-xs text-gray-500">1 min · just now</div>
+                    </div>
                   </div>
-                  <div className="text-xs text-gray-500 mt-1">68% of study time</div>
                 </div>
               </div>
             </div>
