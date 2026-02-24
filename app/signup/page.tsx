@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { GraduationCap, Mail, Lock, Eye, EyeOff, User, CheckCircle, ArrowRight, ArrowLeft, Loader2, Bookmark, ExternalLink } from 'lucide-react'
+import { GraduationCap, Mail, Lock, Eye, EyeOff, User, CheckCircle, ArrowRight, ArrowLeft, Loader2, Bookmark } from 'lucide-react'
 import Link from 'next/link'
 
 type Step = 'email' | 'verify' | 'details' | 'success'
@@ -28,7 +28,6 @@ export default function Signup() {
   const [dashboardUrl, setDashboardUrl] = useState('https://student.oumie.app')
 
   const API_URL = 'https://oumie-backend.onrender.com'
-  const DASHBOARD_URL = 'https://student.oumie.app'
 
   // Step 1: Check email and send verification
   const handleEmailSubmit = async (e: React.FormEvent) => {
@@ -172,13 +171,7 @@ export default function Signup() {
         // Extension not installed or not available
       }
 
-      // Build dashboard URL with tokens for cross-domain auth
-      const params = new URLSearchParams({
-        token: data.token,
-        refresh: data.refreshToken,
-        user: JSON.stringify(data.user)
-      })
-      setDashboardUrl(`${DASHBOARD_URL}?${params.toString()}`)
+      setDashboardUrl('https://oumie.app/onboarding')
 
       setStep('success')
     } catch (err: unknown) {
@@ -252,8 +245,8 @@ export default function Signup() {
             href={dashboardUrl}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 rounded-xl transition-colors flex items-center justify-center gap-2 mb-4"
           >
-            Go to Student Dashboard
-            <ExternalLink size={18} />
+            Set Up Your Profile
+            <ArrowRight size={18} />
           </a>
 
           <p className="text-neutral-500 text-sm">
