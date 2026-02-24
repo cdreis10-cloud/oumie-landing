@@ -16,7 +16,6 @@ import {
   Star,
   Menu,
   X,
-  Play,
   ChevronDown,
   LogIn,
   LayoutDashboard
@@ -257,12 +256,6 @@ export default function LandingPage() {
               Get Started Free
               <ArrowRight className="w-5 h-5" />
             </a>
-            <button className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
-              <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center hover:border-white/60 transition-colors">
-                <Play className="w-5 h-5 ml-0.5" />
-              </div>
-              <span className="text-sm font-medium">Watch Demo</span>
-            </button>
           </div>
 
           {/* Dashboard Preview */}
@@ -489,10 +482,10 @@ export default function LandingPage() {
               </div>
 
               <a
-                href="#"
+                href="/contact"
                 className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
               >
-                Contact Sales
+                Contact Us
                 <ArrowRight className="w-4 h-4" />
               </a>
             </div>
@@ -626,9 +619,6 @@ export default function LandingPage() {
             <div>
               <h4 className="text-sm font-semibold text-white mb-4">Company</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="text-gray-500 hover:text-white text-sm transition-colors">About</a></li>
-                <li><a href="#" className="text-gray-500 hover:text-white text-sm transition-colors">Blog</a></li>
-                <li><a href="#" className="text-gray-500 hover:text-white text-sm transition-colors">Careers</a></li>
                 <li><a href="/contact" className="text-gray-500 hover:text-white text-sm transition-colors">Contact</a></li>
               </ul>
             </div>
@@ -638,18 +628,12 @@ export default function LandingPage() {
               <ul className="space-y-3">
                 <li><a href="/privacy" className="text-gray-500 hover:text-white text-sm transition-colors">Privacy Policy</a></li>
                 <li><a href="/terms" className="text-gray-500 hover:text-white text-sm transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="text-gray-500 hover:text-white text-sm transition-colors">Cookie Policy</a></li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-gray-600 text-sm">© 2025 Oumie. All rights reserved.</p>
-            <div className="flex items-center gap-6">
-              <a href="#" className="text-gray-600 hover:text-gray-400 text-sm transition-colors">Twitter</a>
-              <a href="#" className="text-gray-600 hover:text-gray-400 text-sm transition-colors">Instagram</a>
-              <a href="#" className="text-gray-600 hover:text-gray-400 text-sm transition-colors">LinkedIn</a>
-            </div>
+          <div className="border-t border-white/10 pt-8">
+            <p className="text-gray-600 text-sm">© 2026 Oumie. All rights reserved.</p>
           </div>
         </div>
       </footer>
