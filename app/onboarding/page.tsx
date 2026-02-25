@@ -157,10 +157,12 @@ export default function Onboarding() {
         body: JSON.stringify({
           year_in_school: finalAnswers.year_in_school,
           major: finalAnswers.major,
-          study_struggle: finalAnswers.study_struggle || finalAnswers.study_struggle_2,
+          study_struggle: finalAnswers.study_struggle,
           study_environment: finalAnswers.study_environment,
           study_time_preference: finalAnswers.study_time_preference,
           study_goal: finalAnswers.study_goal,
+          note_taking: finalAnswers.note_taking,
+          focus_killer: finalAnswers.study_struggle_2,
         }),
       })
     } catch {
