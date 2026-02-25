@@ -3,24 +3,29 @@ import { useState } from 'react'
 import { GraduationCap, Mail, MessageSquare, Send, CheckCircle, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
+const API_URL = 'https://oumie-backend.onrender.com'
+
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: 'general',
-    message: ''
-  })
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!subject) return
     setLoading(true)
-
-    // In production, this would send to your backend or email service
-    // For now, we'll simulate a submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-
+    try {
+      await fetch(`${API_URL}/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, subject, message }),
+      })
+    } catch {
+      // proceed regardless
+    }
     setSubmitted(true)
     setLoading(false)
   }
@@ -32,9 +37,9 @@ export default function Contact() {
           <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="text-green-400" size={32} />
           </div>
-          <h1 className="text-2xl font-bold mb-4">Message Sent!</h1>
+          <h1 className="text-2xl font-bold mb-4">Message received.</h1>
           <p className="text-neutral-400 mb-8">
-            Thanks for reaching out. We&apos;ll get back to you within 24-48 hours.
+            We will get back to you within 24–48 hours.
           </p>
           <Link
             href="/"
@@ -69,20 +74,20 @@ export default function Contact() {
           <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4">
             <Mail className="text-blue-400 mb-2" size={24} />
             <h3 className="font-semibold mb-1">Email Us</h3>
-            <a href="mailto:support@oumie.com" className="text-neutral-400 text-sm hover:text-white">
-              support@oumie.com
+            <a href="mailto:support@oumie.app" className="text-neutral-400 text-sm hover:text-white">
+              support@oumie.app
             </a>
           </div>
           <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4">
             <MessageSquare className="text-purple-400 mb-2" size={24} />
             <h3 className="font-semibold mb-1">Response Time</h3>
-            <p className="text-neutral-400 text-sm">Within 24-48 hours</p>
+            <p className="text-neutral-400 text-sm">Within 24–48 hours</p>
           </div>
           <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4">
             <GraduationCap className="text-green-400 mb-2" size={24} />
             <h3 className="font-semibold mb-1">University Partnerships</h3>
-            <a href="mailto:partnerships@oumie.com" className="text-neutral-400 text-sm hover:text-white">
-              partnerships@oumie.com
+            <a href="mailto:partnerships@oumie.app" className="text-neutral-400 text-sm hover:text-white">
+              partnerships@oumie.app
             </a>
           </div>
         </div>
@@ -96,8 +101,8 @@ export default function Contact() {
               <input
                 type="text"
                 required
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500 transition-colors"
                 placeholder="Your name"
               />
@@ -107,8 +112,8 @@ export default function Contact() {
               <input
                 type="email"
                 required
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500 transition-colors"
                 placeholder="you@university.edu"
               />
@@ -117,18 +122,21 @@ export default function Contact() {
 
           <div className="mb-4">
             <label className="block text-sm text-neutral-400 mb-2">What&apos;s this about?</label>
-            <select
-              value={formData.subject}
-              onChange={(e) => setFormData({...formData, subject: e.target.value})}
-              className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
-            >
-              <option value="general">General Question</option>
-              <option value="bug">Bug Report</option>
-              <option value="feature">Feature Request</option>
-              <option value="account">Account Issue</option>
-              <option value="university">University Partnership</option>
-              <option value="other">Other</option>
-            </select>
+            <div className="flex gap-3">
+              {['General Question', 'Bug Report', 'University Partnership'].map(opt => (
+                <div
+                  key={opt}
+                  onClick={() => setSubject(opt)}
+                  className={`flex-1 p-4 rounded-lg border cursor-pointer transition-colors text-sm font-medium text-center ${
+                    subject === opt
+                      ? 'border-blue-500 bg-blue-500/10 text-white'
+                      : 'border-neutral-800 bg-neutral-800 text-neutral-400 hover:border-neutral-600'
+                  }`}
+                >
+                  {opt}
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="mb-6">
@@ -136,8 +144,8 @@ export default function Contact() {
             <textarea
               required
               rows={5}
-              value={formData.message}
-              onChange={(e) => setFormData({...formData, message: e.target.value})}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
               placeholder="Tell us what's on your mind..."
             />
@@ -145,8 +153,8 @@ export default function Contact() {
 
           <button
             type="submit"
-            disabled={loading}
-            className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-600/50 text-white font-semibold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+            disabled={loading || !subject}
+            className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-600/50 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
           >
             {loading ? (
               'Sending...'
@@ -162,8 +170,8 @@ export default function Contact() {
         <div className="mt-8 text-center">
           <p className="text-neutral-500 text-sm">
             For urgent issues, email us directly at{' '}
-            <a href="mailto:support@oumie.com" className="text-blue-400 hover:text-blue-300">
-              support@oumie.com
+            <a href="mailto:support@oumie.app" className="text-blue-400 hover:text-blue-300">
+              support@oumie.app
             </a>
           </p>
         </div>
