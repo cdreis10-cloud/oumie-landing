@@ -67,20 +67,20 @@ export default function LandingPage() {
   const steps = [
     {
       number: "01",
-      title: "Download & Sign Up",
-      description: "Create your free account in under 30 seconds. Connect your student email to verify your status.",
+      title: "Add to Chrome",
+      description: "Install the free Oumie Chrome extension in seconds. No complicated setup, no credit card, no manual configuration.",
       icon: GraduationCap
     },
     {
       number: "02",
-      title: "Study Naturally",
-      description: "Start a lecture, open your notes, or work on assignments. Oumie tracks everything automatically in the background.",
+      title: "Study Like Normal",
+      description: "Open Canvas, Google Docs, or any study site and just work. Oumie runs silently in the background and tracks everything automatically.",
       icon: Clock
     },
     {
       number: "03",
-      title: "See Your Progress",
-      description: "Check your personalized dashboard for insights, streaks, and recommendations tailored to your learning style.",
+      title: "See How You Actually Work",
+      description: "Log into your personal dashboard to see your study patterns, focus score, streaks, and insights built from your real data.",
       icon: TrendingUp
     }
   ]
@@ -571,24 +571,6 @@ export default function LandingPage() {
               <ArrowRight className="w-5 h-5" />
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* QR Code Section */}
-      <section className="py-16 px-6 border-t border-neutral-800">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-4">Get Started on Mobile</h2>
-          <p className="text-neutral-400 mb-8">Scan to create your account</p>
-          <div className="inline-block bg-white p-4 rounded-xl">
-            <img
-              src="/qr-code.png"
-              alt="Scan to sign up for Oumie"
-              className="w-48 h-48"
-            />
-          </div>
-          <p className="text-neutral-500 text-sm mt-4">
-            Works on any device with a camera
-          </p>
         </div>
       </section>
 
