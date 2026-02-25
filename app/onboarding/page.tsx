@@ -77,6 +77,22 @@ const questions = [
     }),
   },
   {
+    id: 'note_taking',
+    question: "How do you take notes?",
+    subtitle: "No wrong answers — we just want to understand how you learn.",
+    options: ['Typed — always', 'Handwritten — always', 'Mix of both', 'Voice memos', 'I wing it honestly'],
+    feedback: (answer: string) => {
+      const msgs: Record<string, { message: string; stat: string }> = {
+        'Typed — always': { message: "Speed typist.", stat: "Typed notes are faster but handwriting boosts retention by up to 29% for complex material. Worth experimenting with." },
+        'Handwritten — always': { message: "Old school and it works.", stat: "Handwriting activates more brain regions during encoding. Studies show 29% better retention for complex topics." },
+        'Mix of both': { message: "Best of both worlds.", stat: "Adaptive learners who mix methods tend to retain information more flexibly across different types of material." },
+        'Voice memos': { message: "Auditory learner spotted.", stat: "Hearing your own explanations back is one of the most effective recall techniques — massively underused." },
+        'I wing it honestly': { message: "Respect for the honesty.", stat: "Building even a minimal note system could significantly improve recall. We will help you track what actually works for you." },
+      }
+      return msgs[answer] ?? { message: "Noted.", stat: "We will factor this into your study insights." }
+    },
+  },
+  {
     id: 'study_struggle_2',
     question: "What kills your focus the fastest?",
     subtitle: "Knowing your kryptonite is half the battle.",
