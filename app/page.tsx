@@ -243,6 +243,8 @@ export default function LandingPage() {
             </span>
           </h1>
 
+          <p className="text-sm font-light italic text-gray-500 mb-6 tracking-wide">(pronounced: O-MEE)</p>
+
           <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
             Oumie automatically tracks your study sessions, reveals your learning patterns,
             and helps you avoid burnout — all without lifting a finger.
