@@ -74,7 +74,7 @@ export default function LandingPage() {
     {
       number: "02",
       title: "Study Naturally",
-      description: "Open a textbook, watch a lecture, or work on assignments. Oumie tracks everything automatically in the background.",
+      description: "Start a lecture, open your notes, or work on assignments. Oumie tracks everything automatically in the background.",
       icon: Clock
     },
     {
@@ -243,7 +243,7 @@ export default function LandingPage() {
             </span>
           </h1>
 
-          <p className="text-sm font-light italic text-gray-500 mb-6 tracking-wide">(pronounced: O-MEE)</p>
+          <p className="text-base font-light italic text-gray-400 mb-6 tracking-wide">(pronounced: O-MEE)</p>
 
           <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
             Oumie automatically tracks your study sessions, reveals your learning patterns,
