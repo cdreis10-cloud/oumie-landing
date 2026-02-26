@@ -248,7 +248,7 @@ export default function LandingPage() {
             </span>
           </h1>
 
-          <p className="text-base font-light italic text-gray-400 mb-6 tracking-wide">(pronounced: O-MEE)</p>
+          <p className="text-base font-light italic text-gray-400 mb-6 tracking-wide">(pronounced: OH-MEEE)</p>
 
           <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
             Oumie automatically tracks your study sessions, reveals your learning patterns,
@@ -282,25 +282,25 @@ export default function LandingPage() {
               <div className="p-6 grid grid-cols-3 gap-4">
                 <div className="bg-white/5 rounded-xl p-4 border border-white/10">
                   <div className="text-sm text-gray-500 mb-1">Today</div>
-                  <div className="text-2xl font-bold text-blue-400">1 <span className="text-base font-normal">min</span></div>
+                  <div className="text-2xl font-bold text-blue-400">4.2 <span className="text-base font-normal">hrs</span></div>
                 </div>
                 <div className="bg-white/5 rounded-xl p-4 border border-white/10">
                   <div className="text-sm text-gray-500 mb-1">This Week</div>
-                  <div className="text-2xl font-bold text-blue-400">1 <span className="text-base font-normal">min</span></div>
+                  <div className="text-2xl font-bold text-blue-400">18.5 <span className="text-base font-normal">hrs</span></div>
                 </div>
                 <div className="bg-white/5 rounded-xl p-4 border border-white/10">
                   <div className="text-sm text-gray-500 mb-1">Total Hours</div>
-                  <div className="text-2xl font-bold text-blue-400">2 <span className="text-base font-normal">min</span></div>
+                  <div className="text-2xl font-bold text-blue-400">142 <span className="text-base font-normal">hrs</span></div>
                 </div>
                 <div className="col-span-2 bg-white/5 rounded-xl p-4 border border-white/10">
                   <div className="text-sm text-gray-500 mb-3">This Week</div>
                   <div className="flex items-end gap-2" style={{ height: '64px' }}>
-                    {[0, 0, 0, 1, 0, 0, 0].map((h, i) => (
+                    {[0.3, 0.6, 0.9, 0.4, 1, 0.7, 0.2].map((h, i) => (
                       <div key={i} className="flex-1 flex flex-col items-center gap-1">
                         {h > 0 ? (
                           <div
                             className="w-full rounded-t-sm bg-blue-500"
-                            style={{ height: '100%' }}
+                            style={{ height: `${h * 100}%` }}
                           />
                         ) : (
                           <div className="w-full rounded-t-sm" style={{ height: '3px', background: 'rgba(255,255,255,0.1)' }} />
@@ -317,8 +317,8 @@ export default function LandingPage() {
                   <div className="flex items-center gap-2">
                     <span className="text-base">📝</span>
                     <div>
-                      <div className="text-xs font-medium text-white">Google Docs</div>
-                      <div className="text-xs text-gray-500">1 min · just now</div>
+                      <div className="text-xs font-medium text-white">Canvas — Biology 301</div>
+                      <div className="text-xs text-gray-500">2.4 hrs · today</div>
                     </div>
                   </div>
                 </div>
