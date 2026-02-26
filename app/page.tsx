@@ -549,6 +549,64 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* What's New */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/10">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-xs font-semibold text-blue-400 uppercase tracking-widest">What&apos;s New</span>
+            <span className="h-px flex-1 bg-white/10" />
+          </div>
+          <h2 className="text-3xl font-bold text-white mb-12">Latest updates to Oumie</h2>
+          <div className="flex flex-col gap-6">
+            {[
+              {
+                date: "Feb 2026",
+                tag: "New Feature",
+                tagColor: "text-green-400 bg-green-400/10",
+                title: "Assignment Time Predictor",
+                description: "Tell Oumie what you have due and it will tell you exactly how long it will take — personalized to how you actually study. Get a day-by-day study plan built from your real data, not generic estimates.",
+              },
+              {
+                date: "Feb 2026",
+                tag: "New Feature",
+                tagColor: "text-purple-400 bg-purple-400/10",
+                title: "Focus Score",
+                description: "A personal 0-100 score built from your session depth, consistency, peak hour alignment, and study streak. Track your personal best and see exactly what to improve.",
+              },
+              {
+                date: "Feb 2026",
+                tag: "Improvement",
+                tagColor: "text-blue-400 bg-blue-400/10",
+                title: "Extension Focus Glow",
+                description: "Your extension now glows based on your study state — orange when you have not studied and it is getting late, purple during your peak hours, green when you are in a deep session.",
+              },
+              {
+                date: "Jan 2026",
+                tag: "Launch",
+                tagColor: "text-yellow-400 bg-yellow-400/10",
+                title: "Oumie is live",
+                description: "Automatic study time tracking, streaks, insights, and a personal dashboard — all free for students. Install the Chrome extension and start tracking in seconds.",
+              },
+            ].map(({ date, tag, tagColor, title, description }) => (
+              <div key={title} className="flex gap-6 group">
+                <div className="flex flex-col items-center">
+                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 shrink-0" />
+                  <div className="w-px flex-1 bg-white/10 mt-2" />
+                </div>
+                <div className="pb-8">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${tagColor}`}>{tag}</span>
+                    <span className="text-xs text-gray-600">{date}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
