@@ -3,13 +3,12 @@
 import { useState } from 'react'
 import {
   GraduationCap,
-  BarChart3,
+  BarChart2,
   Clock,
   Trophy,
   Brain,
   Shield,
   Zap,
-  Users,
   TrendingUp,
   CheckCircle,
   ArrowRight,
@@ -27,41 +26,47 @@ export default function LandingPage() {
 
   const features = [
     {
+      title: "Automatic Time Tracking",
+      description: "Oumie runs silently in the background. Open Canvas, Google Docs, or any study site and your session is logged automatically. No timers, no manual input, no friction.",
       icon: Zap,
-      title: "Automatic Tracking",
-      description: "Oumie runs quietly in the background, automatically logging your study sessions without any manual input required.",
-      color: "text-blue-400"
+      color: "text-blue-400",
+      bg: "bg-blue-400/10",
     },
     {
-      icon: BarChart3,
-      title: "Learning Insights",
-      description: "Get deep analytics on your study patterns, peak performance hours, and subject-specific progress over time.",
-      color: "text-purple-400"
-    },
-    {
-      icon: Trophy,
-      title: "Gamified Progress",
-      description: "Earn badges, hit streaks, and level up as you study. Stay motivated with achievements that celebrate your consistency.",
-      color: "text-yellow-400"
-    },
-    {
-      icon: Users,
-      title: "Class Communities",
-      description: "Connect with classmates, share study strategies, and collaborate on courses through built-in community features.",
-      color: "text-green-400"
-    },
-    {
+      title: "Assignment Time Predictor",
+      description: "Tell Oumie what you have due and it calculates exactly how long it will take — personalized to your study pace. Get a blueprint for when to start and how to finish on time.",
       icon: Brain,
-      title: "Burnout Prevention",
-      description: "AI-powered burnout detection monitors your study intensity and recommends breaks before you hit the wall.",
-      color: "text-red-400"
+      color: "text-purple-400",
+      bg: "bg-purple-400/10",
     },
     {
-      icon: Shield,
+      title: "Focus Score",
+      description: "A personal 0-100 score built from your session depth, consistency, peak hour alignment, and streak. See your personal best and know exactly what to work on.",
+      icon: TrendingUp,
+      color: "text-green-400",
+      bg: "bg-green-400/10",
+    },
+    {
+      title: "Study Pattern Detection",
+      description: "Oumie analyzes your sessions to detect whether you are an early bird, night owl, or afternoon grinder — and tells you your procrastination risk based on real behavioral data.",
+      icon: BarChart2,
+      color: "text-yellow-400",
+      bg: "bg-yellow-400/10",
+    },
+    {
+      title: "Streaks and Badges",
+      description: "Build daily study streaks and earn badges for consistency, deep focus, and hitting personal records. Motivation that is actually tied to your real behavior.",
+      icon: Trophy,
+      color: "text-orange-400",
+      bg: "bg-orange-400/10",
+    },
+    {
       title: "Privacy First",
-      description: "Your data stays yours. End-to-end encryption and strict privacy policies ensure your study data is never shared.",
-      color: "text-teal-400"
-    }
+      description: "Your data belongs to you. Oumie never sells your individual information. Aggregated and anonymized insights only — you stay in control.",
+      icon: Shield,
+      color: "text-teal-400",
+      bg: "bg-teal-400/10",
+    },
   ]
 
   const steps = [
