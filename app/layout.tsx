@@ -25,6 +25,9 @@ export const metadata: Metadata = {
       "Oumie automatically tracks your study sessions, reveals your learning patterns, and helps you avoid burnout.",
     type: "website",
   },
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
