@@ -152,8 +152,8 @@ export default function Onboarding() {
         } else {
           saveOnboarding(newAnswers)
         }
-      }, 400)
-    }, 2200)
+      }, 300)
+    }, 1400)
   }
 
   const saveOnboarding = async (finalAnswers: Record<string, string>) => {
