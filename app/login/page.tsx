@@ -9,6 +9,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [rememberMe, setRememberMe] = useState(false)
 
   const API_URL = 'https://oumie-backend.onrender.com'
   const DASHBOARD_URL = 'https://student.oumie.app'
@@ -22,7 +23,7 @@ export default function Login() {
       const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password, rememberMe })
       })
 
       const data = await response.json()
@@ -147,6 +148,19 @@ export default function Login() {
               <Link href="/forgot-password" style={{ color: '#3b82f6', fontSize: '13px', textDecoration: 'none' }}>
                 Forgot password?
               </Link>
+            </div>
+
+            <div className="flex items-center gap-3 mt-2">
+              <input
+                type="checkbox"
+                id="rememberMe"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+                className="w-4 h-4 rounded border-neutral-600 bg-neutral-800 accent-blue-500 cursor-pointer"
+              />
+              <label htmlFor="rememberMe" className="text-sm text-neutral-400 cursor-pointer select-none">
+                Stay signed in for 2 days
+              </label>
             </div>
 
             <button
