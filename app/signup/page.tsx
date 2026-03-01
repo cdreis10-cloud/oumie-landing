@@ -124,6 +124,7 @@ export default function Signup() {
     setLoading(true)
 
     try {
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
       const response = await fetch(`${API_URL}/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -132,7 +133,8 @@ export default function Signup() {
           email,
           password,
           university: university?.name,
-          universityDomain: email.split('@')[1]
+          universityDomain: email.split('@')[1],
+          timezone
         })
       })
 

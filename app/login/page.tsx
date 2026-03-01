@@ -39,6 +39,13 @@ export default function Login() {
       localStorage.setItem('oumie_auth_email', email)
       localStorage.setItem('oumie_auth_ready', 'true')
 
+      // Update timezone in background
+      fetch(`${API_URL}/student/${data.user.id}/onboarding`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ timezone: Intl.DateTimeFormat().resolvedOptions().timeZone })
+      }).catch(() => {})
+
       // Push auth to extension if installed, then redirect
       const params = new URLSearchParams({
         token: data.token,
